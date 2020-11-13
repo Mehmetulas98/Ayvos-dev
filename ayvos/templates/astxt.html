@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> </title>
+</head>
+
+ 
+
+<body>
+
+ 
+<p align="center"><a href=vmd_timestampback ><button class=grey style="height:75px;width:150px">Ana sayfaya Dönüş</button></a></p>
+
+
+ 
+{% if filenamess %}
+	{% for filename in filenamess %}
+		<div>
+			 
+			<img src="{{ url_for('display_back_page_image', filename=filename) }}">
+
+		</div>
+	{% endfor %}
+{% endif %}
+
+
+</body>
+
+</html>

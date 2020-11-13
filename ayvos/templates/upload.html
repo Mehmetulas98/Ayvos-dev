@@ -1,0 +1,51 @@
+<!doctype html>
+<title>Python Flask Upload Multiple Images and Display them</title>
+<h2>İlk fotoğraf ana fotoğraf, ikinci fotoğraf aranmak istenen yüz için</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input type="file" name="files[]" multiple="true" autocomplete="off" required>
+		</p>
+    </dl>
+	<dl>
+		<p>
+			<input type="file" name="files[]" multiple="true" autocomplete="off" required>
+		</p>
+    </dl>
+    <p> 
+		<input type="submit" value="SEND">
+	</p>
+
+	
+</form>
+
+
+<p align="center"><a href=vmd_timestamp ><button class=grey style="height:75px;width:150px">Sonuçlar Sayfası</button></a></p>
+
+
+
+
+
+ 
+{% if filenames %}
+	{% for filename in filenames %}
+		<div>
+			<img src="{{ url_for('display_image', filename=filename) }}">
+		</div>
+	{% endfor %}
+{% endif %}
+
+
+ 
